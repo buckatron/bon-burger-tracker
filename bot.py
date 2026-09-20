@@ -6,6 +6,8 @@ from datetime import date
 from datetime import datetime, timedelta
 from urllib.request import Request, urlopen
 
+client = tweepy.Client(os.environ["API_KEY"],os.environ["API_SECRET"],os.environ["ACCESS_TOKEN"],os.environ["ACCESS_TOKEN_SECRET"])
+
 week = []
 days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 presentday = datetime.now()
