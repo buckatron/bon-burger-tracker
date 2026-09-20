@@ -52,6 +52,11 @@ else:
         update = "Bon Burgers tomorrow!"
     else:
         update = "The next Bon Burger day is " + days[nbd.weekday()] + ", " + calendar.month_name[nbd.month] + " " + str(nbd.day) + ", which is in " + str((nbd-presentday).days)   + " days."
+
+update += " (" + presentday.strftime("%b %-d") + ")"
 print(update)
 
-client.create_tweet(text=update)
+try:
+    client.create_tweet(text=update)
+except tweepy.errors.Forbidden as e:
+    print("Tweet rejected:", e)
