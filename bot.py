@@ -42,18 +42,18 @@ def nextBurgerDay():
         return False
 
 nbd = nextBurgerDay()
+update = "("+presentday.strftime("%b %-d")+") "
 if nbd==False:
-    update = "No burgers in the foreseeable future :("
+    update += "No burgers in the foreseeable future :("
 else:
     away = (nbd-presentday).days
     if away==0:
-        update = "Bon Burgers today!"
+        update += "Bon Burgers today!"
     elif away==1:
-        update = "Bon Burgers tomorrow!"
+        update += "Bon Burgers tomorrow!"
     else:
-        update = "The next Bon Burger day is " + days[nbd.weekday()] + ", " + calendar.month_name[nbd.month] + " " + str(nbd.day) + ", which is in " + str((nbd-presentday).days)   + " days."
+        update += "The next Bon Burger day is " + days[nbd.weekday()] + ", " + calendar.month_name[nbd.month] + " " + str(nbd.day) + ", which is in " + str((nbd-presentday).days)   + " days."
 
-update += " (" + presentday.strftime("%b %-d") + ")"
 print(update)
 
 try:
